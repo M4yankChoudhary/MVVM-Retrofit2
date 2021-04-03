@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -38,8 +41,9 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull PostListAdapter.ViewHolder holder, int position) {
-        holder.title.setText(this.postList.get(position).getTitle());
-        holder.body.setText(this.postList.get(position).getBody());
+        holder.title.setText(this.postList.get(position).getName());
+        Glide.with(context).load(postList.get(position)
+                .getImage()).into(holder.image);
     }
 
     @Override
@@ -52,12 +56,13 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title, body;
+        private TextView title;
+        private ImageView image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.post_title);
-            body = itemView.findViewById(R.id.post_body);
+            image = itemView.findViewById(R.id.post_image);
         }
     }
 }

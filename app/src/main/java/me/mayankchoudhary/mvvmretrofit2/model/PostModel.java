@@ -2,28 +2,29 @@ package me.mayankchoudhary.mvvmretrofit2.model;
 
 public class PostModel {
 
-    private String title;
-    private String body;
+    private String name;
 
-    public PostModel(String title, String body) {
-        this.title = title;
-        this.body = body;
+    public PostModel(String name, String image) {
+        this.name = name;
+        this.image = image;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getBody() {
-        return body;
+    public String getImage() {
+        return image;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setImage(String image) {
+        this.image = image;
     }
+
+    private String image;
 
 }
